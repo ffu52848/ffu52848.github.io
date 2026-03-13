@@ -1,42 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI 智能名片 - 隱私權政策</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; }
-        h1 { color: #2d5a27; }
-        h3 { border-left: 5px solid #2d5a27; padding-left: 10px; margin-top: 30px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; color: #333; }
+        h1 { color: #2d5a27; border-bottom: 2px solid #2d5a27; padding-bottom: 10px; }
+        h3 { border-left: 5px solid #2d5a27; padding-left: 10px; margin-top: 30px; color: #2d5a27; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        a { color: #2d5a27; text-decoration: none; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+        .footer { margin-top: 50px; font-size: 0.9em; color: #666; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
     </style>
 </head>
 <body>
     <h1>AI 智能名片 隱私權政策</h1>
-    <p>最後更新日期：2026年3月9日</p>
-    <p>本 App（以下簡稱「我們」）尊重並保護所有使用者的個人隱私權。為了給您提供更準確、更有個人化的服務，我們會按照本隱私權政策的規定使用和揭露您的個人資訊。</p>
+    <p>最後更新日期：2026年3月13日</p>
+    <p>本應用程式（以下簡稱「我們」）致力於保護您的個人隱私。本政策說明我們如何處理您在使用服務時產生的資訊，以符合 Apple App Store 的隱私規範。</p>
     
-    <h3>1. 資訊蒐集與使用</h3>
+    <h3>1. 資訊蒐集與第三方處理</h3>
     <ul>
-        <li><b>設備資訊：</b> 為了提供 AdMob 廣告服務及分析 App 效能，我們會蒐集您的裝置識別碼（IDFA/IDFV）。</li>
-        <li><b>AI 辨識資料：</b> 當您使用名片辨識或美食地圖辨識功能時，影像資訊會傳輸至 Google Gemini API 進行語義分析處理。Google 可能會記錄去識別化後的資訊以優化其 AI 服務。</li>
-        <li><b>付款資訊：</b> 所有的 App 內購買交易均透過 Apple App Store 處理，我們不會蒐集您的信用卡資訊。</li>
+        <li><b>設備識別資訊：</b> 為了提供 AdMob 廣告服務並分析 App 穩定性，我們會讀取您的裝置識別碼（如 IDFA/IDFV）。這些資訊僅用於廣告優化與性能監控。</li>
+        <li><b>第三方 AI 處理 (Google Gemini)：</b> 
+            為了提供核心的名片辨識與語義分析服務，當您主動觸發「掃描」功能時，相關影像資料將透過加密傳輸至 <b>Google Gemini AI API</b> 進行即時處理。
+            <br><b>重要聲明：</b> 傳輸之資料僅用於即時提取文字資訊，我們不允許 Google 將您的原始影像或個資用於 AI 模型訓練。辨識過程符合國際數據安全標準。</li>
+        <li><b>支付與訂閱：</b> 所有交易（如購買金幣或擴充功能）均由 Apple App Store 處理。我們不會接觸、蒐集或儲存您的信用卡號碼或銀行帳戶資訊。</li>
     </ul>
 
-    <h3>2. 第三方服務供應商</h3>
-    <p>我們使用了以下第三方服務，這些服務可能會蒐集用於識別您身份的資訊：</p>
+    <h3>2. 資料安全與資產保護</h3>
     <ul>
-        <li>Google AdMob (廣告服務)</li>
-        <li>Google Gemini API (AI 辨識服務)</li>
-        <li>Apple App Store (支付服務)</li>
+        <li><b>本地化存儲：</b> 您所辨識的名片聯絡資訊與影像，預設均儲存於您手機的本地資料庫中。我們不會將您的私密聯絡人清單上傳至我們的私有伺服器。</li>
+        <li><b>資產同步技術 (iCloud & Keychain)：</b> 
+            為確保您的消費權益（如金幣餘額、已購項目），我們使用 <b>iCloud Key-Value (KV)</b> 與系統級 <b>Keychain (鑰匙圈)</b> 加密技術。這能讓您在更換設備或重裝 App 時自動恢復資產，同時防止虛假領取以維護服務公平性。</li>
     </ul>
 
-    <h3>3. 資料安全、同步與刪除</h3>
+    <h3>3. 使用者權利與資料刪除</h3>
     <ul>
-        <li><b>本地資料儲存：</b> 您辨識的所有名片內容與影像資訊均儲存於您的手機本地裝置中，我們不會將您的私密名片資料上傳至我們的伺服器。</li>
-        <li><b>資產雲端同步 (iCloud KV & Keychain)：</b> 為了保障您的消費權益，您的資產（包括金幣餘額、剩餘辨識次數、已擴充容量）會透過 <b>iCloud Key-Value (KV)</b> 與 <b>系統 Keychain (鑰匙圈)</b> 技術進行加密保存。這能確保您在重新安裝 App 或更換同帳號設備時，您的資產能自動恢復，同時防止惡意重複領取初始獎勵以維護服務公平性。</li>
-        <li><b>資料刪除權利：</b> 您可以隨時透過 App 內的「清空資料」功能移除所有儲存在本地的名片紀錄。請注意，此操作僅針對名片內容，不會重置或刪除與您設備/帳號連結的資產紀錄（金幣與次數）。</li>
+        <li><b>資料控制：</b> 您可以隨時透過 App 內的「清空資料」功能手動移除本地所有名片紀錄。</li>
+        <li><b>權限撤回：</b> 您可以隨時在 iOS 設定中關閉相機、相簿或 IDFA 追蹤權限，但這可能會導致部分核心辨識功能無法運作。</li>
     </ul>
 
     <h3>4. 聯繫我們</h3>
-    <p>若對本政策有任何疑問，請聯繫電子郵件：ycku@gmail.com</p>
+    <p>若對本隱私政策有任何疑問，歡迎透過以下方式聯繫我們的技術支援團隊：<br>
+    電子郵件：<a href="mailto:ycku.support@gmail.com">ycku.support@gmail.com</a></p>
+
+    <div class="footer">
+        © 2026 AI 智能名片 版權所有
+    </div>
 </body>
 </html>
