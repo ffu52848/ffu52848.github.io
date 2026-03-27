@@ -8,13 +8,18 @@
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; color: #333; background-color: #f9f9f9; }
         .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         
-        /* 導覽列樣式 */
-        .lang-nav { text-align: right; margin-bottom: 20px; position: sticky; top: 0; background: #f9f9f9; padding: 10px 0; }
-        .lang-nav a { color: #2d5a27; text-decoration: none; font-weight: bold; margin-left: 15px; font-size: 0.9em; border: 1px solid #2d5a27; padding: 5px 12px; border-radius: 20px; transition: 0.3s; }
+        /* 導覽列樣式 (加入 flex 讓語系多的時候能自動換行) */
+        .lang-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; margin-bottom: 20px; position: sticky; top: 0; background: #f9f9f9; padding: 10px 0; z-index: 10; }
+        .lang-nav a { color: #2d5a27; text-decoration: none; font-weight: bold; font-size: 0.9em; border: 1px solid #2d5a27; padding: 5px 12px; border-radius: 20px; transition: 0.3s; }
         .lang-nav a:hover { background: #2d5a27; color: white; }
 
         h1 { color: #2d5a27; border-bottom: 2px solid #2d5a27; padding-bottom: 10px; font-size: 1.8em; }
         h3 { border-left: 5px solid #2d5a27; padding-left: 10px; margin-top: 30px; color: #2d5a27; }
+        
+        /* RTL 專用樣式覆蓋 */
+        [dir="rtl"] h3 { border-left: none; border-right: 5px solid #2d5a27; padding-left: 0; padding-right: 10px; }
+        [dir="rtl"] ul { padding-left: 0; padding-right: 20px; }
+
         ul { padding-left: 20px; }
         li { margin-bottom: 10px; }
         a.email-link { color: #2d5a27; text-decoration: none; font-weight: bold; }
@@ -24,8 +29,13 @@
         .lang-section:target { display: block; } /* 點擊錨點後顯示 */
         #zh-hant { display: block; } /* 預設顯示繁體中文 */
         
-        /* 當其他語言被選中時，隱藏預設語言 */
-        #en:target ~ #zh-hant, #zh-hans:target ~ #zh-hant { display: none; }
+        /* 當任何其他語言被選中時，隱藏預設語言 (注意：zh-hant 必須在 HTML 結構的最後面) */
+        #en:target ~ #zh-hant, 
+        #zh-hans:target ~ #zh-hant,
+        #ja:target ~ #zh-hant,
+        #es:target ~ #zh-hant,
+        #de:target ~ #zh-hant,
+        #ar:target ~ #zh-hant { display: none; }
 
         .footer { margin-top: 50px; font-size: 0.8em; color: #999; text-align: center; border-top: 1px solid #eee; padding-top: 20px; }
     </style>
@@ -34,8 +44,12 @@
 
     <div class="lang-nav">
         <a href="#zh-hant">繁體中文</a>
-        <a href="#en">English</a>
         <a href="#zh-hans">简体中文</a>
+        <a href="#en">English</a>
+        <a href="#ja">日本語</a>
+        <a href="#es">Español</a>
+        <a href="#de">Deutsch</a>
+        <a href="#ar">العربية</a>
     </div>
 
     <div class="container">
@@ -44,17 +58,17 @@
             <p>Last Updated: March 13, 2026</p>
             <p>This application is committed to protecting your personal privacy. This policy explains how we process the information generated during your use of the service to comply with Apple App Store standards.</p>
             
-            <h3>1. Information Collection</h3>
+            <h3>1. Information Collection & Third-Party Processing</h3>
             <ul>
                 <li><b>Device Identification:</b> We use IDFA/IDFV for AdMob optimization and stability monitoring.</li>
-                <li><b>Google Gemini AI:</b> Data is encrypted and sent to Gemini API for real-time recognition. We do not allow Google to use your data for AI training.</li>
-                <li><b>Payments:</b> All transactions are handled by Apple App Store.</li>
+                <li><b>Third-Party AI Processing (Google Gemini):</b> Image data is encrypted and sent to Google Gemini AI for real-time processing, and is not used for model training.</li>
+                <li><b>Payments & Subscriptions:</b> All transactions are handled by Apple App Store.</li>
             </ul>
 
-            <h3>2. Data Security</h3>
+            <h3>2. Data Security & Asset Protection</h3>
             <ul>
-                <li><b>Local Storage:</b> Contact data and images are stored locally on your device.</li>
-                <li><b>iCloud & Keychain:</b> Used for asset synchronization and preventing fraudulent claims.</li>
+                <li><b>Local Storage:</b> Your contact information and images are stored locally on your device by default.</li>
+                <li><b>Asset Synchronization:</b> Uses iCloud KV and system-level Keychain to ensure your purchase rights.</li>
             </ul>
 
             <h3>3. Contact Us</h3>
@@ -83,6 +97,94 @@
             <p>电子邮件：<a href="mailto:ycku.support@gmail.com" class="email-link">ycku.support@gmail.com</a></p>
         </div>
 
+        <div id="ja" class="lang-section">
+            <h1>プライバシーポリシー</h1>
+            <p>最終更新日：2026年3月13日</p>
+            <p>本アプリケーションは、お客様のプライバシー保護に努めています。本ポリシーでは、Apple App Storeの基準に準拠するため、サービス利用時に生成される情報の取り扱いについて説明します。</p>
+            
+            <h3>1. 情報収集とサードパーティ処理</h3>
+            <ul>
+                <li><b>デバイス識別情報：</b> AdMobの広告最適化および安定性監視のためにIDFA/IDFVを使用します。</li>
+                <li><b>サードパーティAI処理 (Google Gemini)：</b> 画像データは暗号化されてGoogle Gemini AIに送信され、リアルタイムで処理されます。モデルのトレーニングには使用されません。</li>
+                <li><b>支払いとサブスクリプション：</b> すべての取引はApple App Storeによって処理されます。</li>
+            </ul>
+
+            <h3>2. データセキュリティと資産保護</h3>
+            <ul>
+                <li><b>ローカルストレージ：</b> 名刺情報と画像は、デフォルトでデバイスのローカルデータベースに保存されます。</li>
+                <li><b>資産同期技術：</b> 購入した資産を保護するため、iCloud KVおよびシステムレベルのKeychainを使用します。</li>
+            </ul>
+
+            <h3>3. お問い合わせ</h3>
+            <p>メール：<a href="mailto:ycku.support@gmail.com" class="email-link">ycku.support@gmail.com</a></p>
+        </div>
+
+        <div id="es" class="lang-section">
+            <h1>Política de Privacidad</h1>
+            <p>Última actualización: 13 de marzo de 2026</p>
+            <p>Esta aplicación se compromete a proteger su privacidad personal. Esta política explica cómo procesamos la información generada durante su uso del servicio para cumplir con los estándares de la App Store de Apple.</p>
+            
+            <h3>1. Recopilación de Información y Procesamiento de Terceros</h3>
+            <ul>
+                <li><b>Identificación del Dispositivo:</b> Utilizamos IDFA/IDFV para la optimización de anuncios de AdMob y el monitoreo de estabilidad.</li>
+                <li><b>Procesamiento de IA de Terceros (Google Gemini):</b> Los datos de imagen se envían encriptados a Google Gemini AI para su procesamiento en tiempo real y no se utilizan para el entrenamiento de modelos.</li>
+                <li><b>Pagos y Suscripciones:</b> Todas las transacciones son manejadas por la App Store de Apple.</li>
+            </ul>
+
+            <h3>2. Seguridad de Datos y Protección de Activos</h3>
+            <ul>
+                <li><b>Almacenamiento Local:</b> Su información de contacto e imágenes se almacenan localmente en su dispositivo de forma predeterminada.</li>
+                <li><b>Sincronización de Activos:</b> Utiliza iCloud KV y Keychain a nivel de sistema para garantizar sus derechos de compra.</li>
+            </ul>
+
+            <h3>3. Contáctenos</h3>
+            <p>Correo electrónico: <a href="mailto:ycku.support@gmail.com" class="email-link">ycku.support@gmail.com</a></p>
+        </div>
+
+        <div id="de" class="lang-section">
+            <h1>Datenschutzerklärung</h1>
+            <p>Letzte Aktualisierung: 13. März 2026</p>
+            <p>Diese Anwendung verpflichtet sich zum Schutz Ihrer persönlichen Privatsphäre. Diese Richtlinie erklärt, wie wir die während Ihrer Nutzung des Dienstes generierten Informationen verarbeiten, um die Standards des Apple App Store zu erfüllen.</p>
+            
+            <h3>1. Datenerfassung und Verarbeitung durch Dritte</h3>
+            <ul>
+                <li><b>Geräteidentifikation:</b> Wir verwenden IDFA/IDFV für AdMob-Optimierung und Stabilitätsüberwachung.</li>
+                <li><b>KI-Verarbeitung durch Dritte (Google Gemini):</b> Bilddaten werden verschlüsselt an Google Gemini AI zur Echtzeitverarbeitung gesendet und nicht für das Modelltraining verwendet.</li>
+                <li><b>Zahlungen & Abonnements:</b> Alle Transaktionen werden vom Apple App Store abgewickelt.</li>
+            </ul>
+
+            <h3>2. Datensicherheit und Vermögensschutz</h3>
+            <ul>
+                <li><b>Lokale Speicherung:</b> Ihre Kontaktinformationen und Bilder werden standardmäßig lokal auf Ihrem Gerät gespeichert.</li>
+                <li><b>Vermögenssynchronisierung:</b> Verwendet iCloud KV und den System-Keychain, um Ihre Kaufrechte zu sichern.</li>
+            </ul>
+
+            <h3>3. Kontaktiere uns</h3>
+            <p>E-Mail: <a href="mailto:ycku.support@gmail.com" class="email-link">ycku.support@gmail.com</a></p>
+        </div>
+
+        <div id="ar" class="lang-section" dir="rtl" style="text-align: right;">
+            <h1>سياسة الخصوصية</h1>
+            <p>آخر تحديث: ١٣ مارس ٢٠٢٦</p>
+            <p>يلتزم هذا التطبيق بحماية خصوصيتك الشخصية. تشرح هذه السياسة كيف نعالج المعلومات التي يتم إنشاؤها أثناء استخدامك للخدمة للامتثال لمعايير متجر تطبيقات آبل (Apple App Store).</p>
+            
+            <h3>1. جمع المعلومات ومعالجة الأطراف الثالثة</h3>
+            <ul>
+                <li><b>تحديد الجهاز:</b> نستخدم IDFA/IDFV لتحسين إعلانات AdMob ومراقبة الاستقرار.</li>
+                <li><b>معالجة الذكاء الاصطناعي بواسطة جهات خارجية (Google Gemini):</b> يتم إرسال بيانات الصور مشفرة إلى Google Gemini AI للمعالجة في الوقت الفعلي، ولا يتم استخدامها لتدريب النماذج.</li>
+                <li><b>المدفوعات والاشتراكات:</b> تتم معالجة جميع المعاملات بواسطة Apple App Store.</li>
+            </ul>
+
+            <h3>2. أمن البيانات وحماية الأصول</h3>
+            <ul>
+                <li><b>التخزين المحلي:</b> يتم تخزين معلومات جهات الاتصال والصور الخاصة بك محليًا على جهازك بشكل افتراضي.</li>
+                <li><b>مزامنة الأصول:</b> يستخدم iCloud KV و Keychain على مستوى النظام لضمان حقوق الشراء الخاصة بك.</li>
+            </ul>
+
+            <h3>3. اتصل بنا</h3>
+            <p>البريد الإلكتروني: <a href="mailto:ycku.support@gmail.com" class="email-link">ycku.support@gmail.com</a></p>
+        </div>
+
         <div id="zh-hant" class="lang-section">
             <h1>AI 智能名片 隱私權政策</h1>
             <p>最後更新日期：2026年3月13日</p>
@@ -105,9 +207,10 @@
             <p>電子郵件：<a href="mailto:ycku.support@gmail.com" class="email-link">ycku.support@gmail.com</a></p>
         </div>
 
-        <div class="footer">
-            © 2026 AI 智能名片 版權所有 / All Rights Reserved
-        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 AI 智能名片 版權所有 / All Rights Reserved
     </div>
 
 </body>
