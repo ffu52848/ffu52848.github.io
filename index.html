@@ -3,64 +3,197 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Kard Support</title>
+    <title>AI Kard | 全球商務助理</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; color: #333; background-color: #f9f9f9; }
-        .card { background: white; padding: 32px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        h1 { color: #2d5a27; border-bottom: 2px solid #2d5a27; padding-bottom: 10px; font-size: 1.6em; }
-        h2 { color: #2d5a27; font-size: 1.1em; margin-top: 28px; margin-bottom: 12px; }
-        p { margin: 12px 0; }
-        .lang-nav { display: flex; flex-wrap: wrap; gap: 8px; }
-        .lang-nav a { color: #2d5a27; text-decoration: none; font-weight: bold; font-size: 0.85em; border: 1px solid #2d5a27; padding: 6px 12px; border-radius: 20px; transition: 0.3s; }
-        .lang-nav a:hover { background: #2d5a27; color: white; }
-        a.email-link { color: #2d5a27; font-weight: bold; text-decoration: none; }
-        a.email-link:hover { text-decoration: underline; }
+        :root {
+            --brand: #1f5a2f;
+            --brand-dark: #174426;
+            --bg: #f4faf5;
+            --text: #132016;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+        }
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 28px 20px 64px;
+        }
+        .hero, .section, .privacy {
+            background: #fff;
+            border-radius: 20px;
+            padding: 26px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0 0 10px;
+            font-size: clamp(2rem, 4.8vw, 3.2rem);
+            color: var(--brand-dark);
+            line-height: 1.2;
+        }
+        h2 {
+            margin: 0 0 10px;
+            font-size: clamp(1.5rem, 3.8vw, 2.2rem);
+            color: var(--brand);
+            line-height: 1.3;
+        }
+        h3 {
+            margin: 0 0 8px;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--brand-dark);
+        }
+        p, li {
+            margin: 0;
+            font-size: clamp(1.05rem, 2.6vw, 1.35rem);
+        }
+        .lead {
+            margin-bottom: 12px;
+            font-size: clamp(1.1rem, 2.8vw, 1.5rem);
+        }
+        .support {
+            margin-top: 14px;
+        }
+        .email-link {
+            color: var(--brand-dark);
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(31, 90, 47, 0.35);
+        }
+        .email-link:hover { border-bottom-color: var(--brand-dark); }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+        .feature-card {
+            border: 2px solid #dcefe0;
+            border-radius: 14px;
+            padding: 14px;
+            background: #fbfffc;
+        }
+        .steps {
+            margin: 0;
+            padding-left: 24px;
+            display: grid;
+            gap: 8px;
+        }
+        .lang-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .lang-nav a {
+            color: var(--brand);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border: 1px solid var(--brand);
+            padding: 8px 14px;
+            border-radius: 999px;
+            transition: .2s ease;
+            background: #fff;
+        }
+        .lang-nav a:hover {
+            background: var(--brand);
+            color: #fff;
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>AI Kard — 智能名片辨識</h1>
-        <p>如有任何使用問題，歡迎聯繫：<a href="mailto:ycku.support@gmail.com" class="email-link">ycku.support@gmail.com</a></p>
-        <p lang="en">For support in English, please use the same email address above.</p>
+    <main class="container">
+        <section class="hero">
+            <h1>AI Kard｜全球商務助理</h1>
+            <p class="lead">全球名片，即掃即懂。AI 智慧翻譯多國語言名片內容，跨國交流更快、更準、更有禮貌。</p>
+            <p>版本 7.4.3 加入任務式引導與獎勵機制，從第一次掃描到完整人脈管理，帶你一步步上手核心功能。</p>
+            <p class="support">客服信箱：<a href="mailto:ycku.support@gmail.com" class="email-link">ycku.support@gmail.com</a></p>
+            <p lang="en">English support is available via the same email address above.</p>
+        </section>
 
-        <h2>隱私權政策 · Privacy Policy</h2>
-        <p>請選擇語言瀏覽完整條款。 Choose your language to read the full policy.</p>
-        <nav class="lang-nav" aria-label="Privacy policy languages">
-            <a href="aikard-web/privacy.html#en">English</a>
-            <a href="aikard-web/privacy.html#zh-hant">繁體中文</a>
-            <a href="aikard-web/privacy.html#zh-hans">简体中文</a>
-            <a href="aikard-web/privacy.html#ja">日本語</a>
-            <a href="aikard-web/privacy.html#ko">한국어</a>
-            <a href="aikard-web/privacy.html#fr">Français</a>
-            <a href="aikard-web/privacy.html#it">Italiano</a>
-            <a href="aikard-web/privacy.html#pt">Português</a>
-            <a href="aikard-web/privacy.html#es">Español</a>
-            <a href="aikard-web/privacy.html#de">Deutsch</a>
-            <a href="aikard-web/privacy.html#ar">العربية</a>
-            <a href="aikard-web/privacy.html#vi">Tiếng Việt</a>
-            <a href="aikard-web/privacy.html#th">ไทย</a>
-            <a href="aikard-web/privacy.html#tr">Türkçe</a>
-            <a href="aikard-web/privacy.html#bn">বাংলা</a>
-            <a href="aikard-web/privacy.html#nl">Nederlands</a>
-            <a href="aikard-web/privacy.html#ru">Русский</a>
-            <a href="aikard-web/privacy.html#da">Dansk</a>
-            <a href="aikard-web/privacy.html#he">עברית</a>
-            <a href="aikard-web/privacy.html#id">Bahasa Indonesia</a>
-            <a href="aikard-web/privacy.html#pl">Polski</a>
-            <a href="aikard-web/privacy.html#hi">हिन्दी</a>
-            <a href="aikard-web/privacy.html#kn">ಕನ್ನಡ</a>
-            <a href="aikard-web/privacy.html#mr">मराठी</a>
-            <a href="aikard-web/privacy.html#te">తెలుగు</a>
-            <a href="aikard-web/privacy.html#ta">தமிழ்</a>
-            <a href="aikard-web/privacy.html#gu">ગુજરાતી</a>
-            <a href="aikard-web/privacy.html#pa">ਪੰਜਾਬੀ</a>
-            <a href="aikard-web/privacy.html#ml">മലയാളം</a>
-            <a href="aikard-web/privacy.html#or">ଓଡ଼ିଆ</a>
-            <a href="aikard-web/privacy.html#ur">اردو</a>
-            <a href="aikard-web/privacy.html#hu">Magyar</a>
-            <a href="aikard-web/privacy.html#cs">Čeština</a>
-            <a href="aikard-web/privacy.html#sv">Svenska</a>
-        </nav>
-    </div>
+        <section class="section">
+            <h2>完整功能介紹</h2>
+            <p class="lead">AI Kard 是一款專為跨國商務設計的全球商務智能助理，從掃描、辨識、翻譯、整理到同步聯絡人，一站完成。</p>
+            <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap; margin-top:16px;">
+                <img src="assets/app_icon.png" alt="AI Kard App Icon" style="width:96px; height:96px; border-radius:22px; box-shadow:0 8px 20px rgba(0,0,0,0.2);">
+                <p style="max-width:760px;">支援 175 國語言辨識、39 種在地化介面，結合 AI 語意理解與 Apple 級隱私保護，幫你把每張名片都變成可立即行動的人脈資產。</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card"><h3>1｜萬用掃描</h3><p>一次可批次掃描多張名片，展會後快速建檔不塞車。</p></article>
+                <article class="feature-card"><h3>2｜智慧提取</h3><p>自動抓取姓名、公司、職稱與部門，降低手動輸入成本。</p></article>
+                <article class="feature-card"><h3>3｜百國語系</h3><p>主流語言與特殊語系都能精準識別，跨國交換名片更順暢。</p></article>
+                <article class="feature-card"><h3>4｜硬體加密</h3><p>資料以裝置端處理為主，搭配 Keychain 保護聯絡資訊。</p></article>
+                <article class="feature-card"><h3>5｜極致輕量</h3><p>低儲存占用、高啟動速度，日常使用更快更穩定。</p></article>
+                <article class="feature-card"><h3>6｜無所不掃</h3><p>螢幕、截圖、海報、看板都可掃，名片來源不受限。</p></article>
+                <article class="feature-card"><h3>7｜一鍵同步</h3><p>可直接匯入 iPhone 聯絡人，智慧去重避免重複資料。</p></article>
+                <article class="feature-card"><h3>8｜商務摘要</h3><p>AI 彙整專業身份與重點亮點，幫你快速回想每位聯絡人。</p></article>
+                <article class="feature-card"><h3>9｜全球名片，即掃即懂</h3><p>AI 智慧翻譯多國語言名片內容，初次接觸也能秒懂關鍵。</p></article>
+                <article class="feature-card"><h3>10｜任務式引導</h3><p>完成任務、領取獎勵，循序解鎖功能，快速建立使用習慣。</p></article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>版本 7.4.3 更新重點</h2>
+            <ol class="steps">
+                <li>新增自動智慧翻譯，全球名片即掃即懂。</li>
+                <li>任務獎勵上線，建立更直覺的新手引導流程。</li>
+                <li>多語系在地化介面擴展，跨區團隊協作更自然。</li>
+                <li>整體效能提升，掃描、辨識與整理流程更順暢。</li>
+                <li>智慧檔案管理升級，減少無效檔案與資料遺失風險。</li>
+            </ol>
+        </section>
+
+        <section class="privacy">
+            <h2>隱私權政策 · Privacy Policy</h2>
+            <p>請選擇語言瀏覽完整條款。Choose your language to read the full policy.</p>
+            <nav class="lang-nav" aria-label="Privacy policy languages">
+                <a href="aikard-web/privacy.html#en">English</a>
+                <a href="aikard-web/privacy.html#zh-hant">繁體中文</a>
+                <a href="aikard-web/privacy.html#zh-hans">简体中文</a>
+                <a href="aikard-web/privacy.html#ja">日本語</a>
+                <a href="aikard-web/privacy.html#ko">한국어</a>
+                <a href="aikard-web/privacy.html#fr">Français</a>
+                <a href="aikard-web/privacy.html#it">Italiano</a>
+                <a href="aikard-web/privacy.html#pt">Português</a>
+                <a href="aikard-web/privacy.html#es">Español</a>
+                <a href="aikard-web/privacy.html#de">Deutsch</a>
+                <a href="aikard-web/privacy.html#ar">العربية</a>
+                <a href="aikard-web/privacy.html#vi">Tiếng Việt</a>
+                <a href="aikard-web/privacy.html#th">ไทย</a>
+                <a href="aikard-web/privacy.html#tr">Türkçe</a>
+                <a href="aikard-web/privacy.html#bn">বাংলা</a>
+                <a href="aikard-web/privacy.html#nl">Nederlands</a>
+                <a href="aikard-web/privacy.html#ru">Русский</a>
+                <a href="aikard-web/privacy.html#da">Dansk</a>
+                <a href="aikard-web/privacy.html#he">עברית</a>
+                <a href="aikard-web/privacy.html#id">Bahasa Indonesia</a>
+                <a href="aikard-web/privacy.html#pl">Polski</a>
+                <a href="aikard-web/privacy.html#hi">हिन्दी</a>
+                <a href="aikard-web/privacy.html#kn">ಕನ್ನಡ</a>
+                <a href="aikard-web/privacy.html#mr">मराठी</a>
+                <a href="aikard-web/privacy.html#te">తెలుగు</a>
+                <a href="aikard-web/privacy.html#ta">தமிழ்</a>
+                <a href="aikard-web/privacy.html#gu">ગુજરાતી</a>
+                <a href="aikard-web/privacy.html#pa">ਪੰਜਾਬੀ</a>
+                <a href="aikard-web/privacy.html#ml">മലയാളം</a>
+                <a href="aikard-web/privacy.html#or">ଓଡ଼ିଆ</a>
+                <a href="aikard-web/privacy.html#ur">اردو</a>
+                <a href="aikard-web/privacy.html#hu">Magyar</a>
+                <a href="aikard-web/privacy.html#cs">Čeština</a>
+                <a href="aikard-web/privacy.html#sv">Svenska</a>
+                <a href="aikard-web/privacy.html#ca">Català</a>
+                <a href="aikard-web/privacy.html#el">Ελληνικά</a>
+                <a href="aikard-web/privacy.html#hr">Hrvatski</a>
+                <a href="aikard-web/privacy.html#fi">Suomi</a>
+                <a href="aikard-web/privacy.html#no">Norsk</a>
+            </nav>
+        </section>
+    </main>
 </body>
 </html>
